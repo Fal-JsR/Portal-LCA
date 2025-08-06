@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Instansi;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +14,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Create a default instansi first
+        $instansi = Instansi::create([
+            'nama_instansi' => 'Default Instansi'
+        ]);
 
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => bcrypt('password'),
+            'username' => 'testuser',
+            'role' => 'client',
+            'instansi_id' => $instansi->id,
+        ]);
+
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@lca.com',
+            'password' => bcrypt('password'),
+            'username' => 'admin',
+            'role' => 'admin',
         ]);
     }
 }

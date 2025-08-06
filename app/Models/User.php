@@ -18,8 +18,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
+        'role',
+        'instansi_id',
     ];
 
     /**
@@ -43,5 +46,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the instansi that owns the user.
+     */
+    public function instansi()
+    {
+        return $this->belongsTo(Instansi::class);
     }
 }

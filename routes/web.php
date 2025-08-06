@@ -3,15 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Client\DashboardController as ClientDashboardController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -19,7 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/link', [AdminDashboardController::class, 'link'])->name('admin.link');
     Route::get('/trafik-lca', [AdminDashboardController::class, 'trafikLca'])->name('admin.trafik-lca');
@@ -35,9 +32,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/register', [AdminDashboardController::class, 'register'])->name('admin.register');
     Route::get('/instansi', [AdminDashboardController::class, 'instansi'])->name('admin.instansi');
     Route::post('/instansi', [AdminDashboardController::class, 'storeInstansi'])->name('instansi.store');
+    Route::get('/register-user', [RegisterController::class, 'showUserForm'])->name('admin.register.user');
+    Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('register.user.submit');
+    Route::get('/register-instansi', [RegisterController::class, 'showInstansiForm'])->name('admin.register.instansi');
+    Route::post('/register-instansi', [RegisterController::class, 'registerInstansi'])->name('register.instansi.submit');
 });
 
-Route::middleware(['auth', 'role:client'])->prefix('client')->group(function () {
+Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {
     Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('client.dashboard');
     Route::get('/link', [ClientDashboardController::class, 'link'])->name('client.link');
 });

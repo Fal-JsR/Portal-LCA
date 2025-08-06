@@ -8,5 +8,15 @@ class Instansi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama_instansi'];
+    protected $fillable = [
+        'nama_instansi',
+    ];
+
+    /**
+     * Get the users for the instansi.
+     */
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
