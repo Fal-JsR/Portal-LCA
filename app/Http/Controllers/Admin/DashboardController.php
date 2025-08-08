@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Instansi;
 
 class DashboardController extends Controller
 {
@@ -78,14 +80,28 @@ class DashboardController extends Controller
 
     public function storeInstansi(Request $request)
     {
-        // Add validation and store logic here
         $request->validate([
             'nama_instansi' => 'required|string|max:255',
         ]);
 
-        // Store instansi logic would go here
-        
+        Instansi::create([
+            'nama_instansi' => $request->nama_instansi,
+        ]);
+
         return redirect()->route('admin.instansi')->with('success', 'Instansi berhasil ditambahkan');
     }
-}
 
+    public function trafikClient()
+    {
+        $instansis = Instansi::all();
+        return view('admin.traficclient.traficclient', compact('instansis'));
+    }
+
+    public function showInstansiMonitoring($id)
+    {
+        $instansi = Instansi::findOrFail($id);
+        $users = $instansi->users; // Get users belonging to this instansi
+        
+        return view('admin.traficclient.monitoring', compact('instansi', 'users'));
+    }
+}

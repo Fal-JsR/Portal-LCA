@@ -19,8 +19,8 @@
             <h3 class="text-xl font-semibold text-gray-800 mb-2">DOWNSTREAM</h3>
             <a href="{{route('admin.downstream')}}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Cek Status</a>
         </div>
-
-                <div class="bg-white shadow-lg rounded-2xl p-6">
+        
+        <div class="bg-white shadow-lg rounded-2xl p-6">
             <h3 class="text-xl font-semibold text-gray-800 mb-2">PING</h3>
             <a href="{{ route ('admin.ping')}}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Cek Status</a>
         </div>

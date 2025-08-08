@@ -21,7 +21,7 @@
                         'Home' => route('admin.dashboard'),
                         'Link' => route('admin.link'),
                         'Trafik LCA' => route('admin.trafik-lca'),
-                        'Trafik Client' => '#',
+                        'Trafik Client' => route('admin.trafik-client'),
                         'Record Maintenance' => '#',
                         'FAQ' => '#',
                         'Kontak' => '#',

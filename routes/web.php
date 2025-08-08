@@ -36,6 +36,8 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('register.user.submit');
     Route::get('/register-instansi', [RegisterController::class, 'showInstansiForm'])->name('admin.register.instansi');
     Route::post('/register-instansi', [RegisterController::class, 'registerInstansi'])->name('register.instansi.submit');
+    Route::get('/trafik-client', [AdminDashboardController::class, 'trafikClient'])->name('admin.trafik-client');
+    Route::get('/trafik-client/{id}', [AdminDashboardController::class, 'showInstansiMonitoring'])->name('admin.instansi.monitoring');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {

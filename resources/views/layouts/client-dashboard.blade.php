@@ -18,12 +18,11 @@
                 @php
                     $menus = [
                         'Home' => route('client.dashboard'),
-                        'Link' => route('client.link'),
-                        'Trafik Client' => '#',
-                        'Record Maintenance' => '#',
+                        'Trafik Network' => '#',
                         'FAQ' => route('faq.fiber'),
                         'Kontak' => route('contact'),
                         'Profil' => '#',
+                        'Invoice' => '#',
                     ];
                 @endphp
 
