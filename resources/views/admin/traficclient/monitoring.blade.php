@@ -18,56 +18,85 @@
         </div>
     </div>
 
-    <!-- Stats Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-        <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex items-center">
-                <div class="p-3 rounded-full bg-blue-500 bg-opacity-75">
-                    <i class="fas fa-users text-white"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="mb-2 text-sm font-medium text-gray-600">Total Users</p>
-                    <p class="text-lg font-semibold text-gray-700">{{ $users->count() }}</p>
-                </div>
-            </div>
+
+    <!-- Grafik Cards -->
+<div class="mt-10">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4 bg-gray-50 border-b">
+            <h3 class="text-lg font-semibold text-gray-800">
+                <i class="fas fa-chart-area mr-2"></i>Grafik Trafik Instansi
+            </h3>
         </div>
 
-        <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex items-center">
-                <div class="p-3 rounded-full bg-green-500 bg-opacity-75">
-                    <i class="fas fa-signal text-white"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="mb-2 text-sm font-medium text-gray-600">Status</p>
-                    <p class="text-lg font-semibold text-green-600">Online</p>
-                </div>
-            </div>
-        </div>
+        <div class="p-6">
+            @forelse($grafiks as $grafik)
+                <div class="mb-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        @if($grafik->url_2jam)
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
+                                    <h3 class="text-sm font-medium">{{ $grafik->nama }} - 2 Jam</h3>
+                                </div>
+                                <div class="p-3 cursor-pointer" onclick="openPopup('{{ html_entity_decode($grafik->url_2jam) }}', '{{ $grafik->nama }} - 2 Jam')">
+                                    <img src="{{ html_entity_decode($grafik->url_2jam) }}" alt="{{ $grafik->nama }} - 2 Jam" class="w-full h-auto">
+                                </div>
+                            </div>
+                        @endif
 
-        <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex items-center">
-                <div class="p-3 rounded-full bg-yellow-500 bg-opacity-75">
-                    <i class="fas fa-download text-white"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="mb-2 text-sm font-medium text-gray-600">Download</p>
-                    <p class="text-lg font-semibold text-gray-700">-- Mbps</p>
-                </div>
-            </div>
-        </div>
+                        @if($grafik->url_24jam)
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
+                                    <h3 class="text-sm font-medium">{{ $grafik->nama }} - 24 Jam</h3>
+                                </div>
+                                <div class="p-3 cursor-pointer" onclick="openPopup('{{ html_entity_decode($grafik->url_24jam) }}', '{{ $grafik->nama }} - 24 Jam')">
+                                    <img src="{{ html_entity_decode($grafik->url_24jam) }}" alt="{{ $grafik->nama }} - 24 Jam" class="w-full h-auto">
+                                </div>
+                            </div>
+                        @endif
 
-        <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex items-center">
-                <div class="p-3 rounded-full bg-red-500 bg-opacity-75">
-                    <i class="fas fa-upload text-white"></i>
+                        @if($grafik->url_30hari)
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
+                                    <h3 class="text-sm font-medium">{{ $grafik->nama }} - 30 Hari</h3>
+                                </div>
+                                <div class="p-3 cursor-pointer" onclick="openPopup('{{ html_entity_decode($grafik->url_30hari) }}', '{{ $grafik->nama }} - 30 Hari')">
+                                    <img src="{{ html_entity_decode($grafik->url_30hari) }}" alt="{{ $grafik->nama }} - 30 Hari" class="w-full h-auto">
+                                </div>
+                            </div>
+                        @endif
+
+                        @if($grafik->url_365hari)
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
+                                    <h3 class="text-sm font-medium">{{ $grafik->nama }} - 365 Hari</h3>
+                                </div>
+                                <div class="p-3 cursor-pointer" onclick="openPopup('{{ html_entity_decode($grafik->url_365hari) }}', '{{ $grafik->nama }} - 365 Hari')">
+                                    <img src="{{ html_entity_decode($grafik->url_365hari) }}" alt="{{ $grafik->nama }} - 365 Hari" class="w-full h-auto">
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+
+                    @if(!$grafik->url_2jam && !$grafik->url_24jam && !$grafik->url_30hari && !$grafik->url_365hari)
+                        <div class="text-center py-8">
+                            <i class="fas fa-chart-bar text-gray-400 text-4xl mb-2"></i>
+                            <p class="text-gray-500">Belum ada URL grafik yang tersedia untuk {{ $grafik->nama }}</p>
+                        </div>
+                    @endif
                 </div>
-                <div class="ml-4">
-                    <p class="mb-2 text-sm font-medium text-gray-600">Upload</p>
-                    <p class="text-lg font-semibold text-gray-700">-- Mbps</p>
+            @empty
+                <div class="text-center py-12">
+                    <i class="fas fa-chart-bar text-gray-400 text-6xl mb-4"></i>
+                    <p class="text-gray-500 text-lg mb-4">Belum ada grafik trafik yang ditambahkan.</p>
+                    <a href="{{ route('admin.grafik.create') }}" 
+                       class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="fas fa-plus mr-2"></i>Tambah Grafik
+                    </a>
                 </div>
-            </div>
+            @endforelse
         </div>
     </div>
+</div>
 
     <!-- Users Table -->
     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -130,4 +159,47 @@
         </div>
     </div>
 </div>
+
+<!-- Popup Modal -->
+<div id="popup" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg w-11/12 max-w-4xl max-h-screen p-6 relative">
+        <div class="flex justify-between items-center mb-4 border-b pb-3">
+            <h2 id="popup-title" class="text-xl font-semibold text-gray-800"></h2>
+            <button onclick="closePopup()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+        </div>
+        <div class="overflow-auto max-h-96">
+            <img id="popup-image" src="" alt="Network Graph" class="w-full h-auto">
+        </div>
+    </div>
+</div>
+
+<script>
+    function openPopup(src, title) {
+        document.getElementById('popup-image').src = src;
+        document.getElementById('popup-title').textContent = title;
+        document.getElementById('popup').classList.remove('hidden');
+        document.getElementById('popup').classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closePopup() {
+        document.getElementById('popup').classList.add('hidden');
+        document.getElementById('popup').classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+    
+    // Close when clicking outside
+    document.getElementById('popup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePopup();
+        }
+    });
+    
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closePopup();
+        }
+    });
+</script>
 @endsection

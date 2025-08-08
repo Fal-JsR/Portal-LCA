@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Instansi;
+use App\Models\GrafikTrafik;
 
 class DashboardController extends Controller
 {
@@ -100,8 +101,22 @@ class DashboardController extends Controller
     public function showInstansiMonitoring($id)
     {
         $instansi = Instansi::findOrFail($id);
-        $users = $instansi->users; // Get users belonging to this instansi
-        
-        return view('admin.traficclient.monitoring', compact('instansi', 'users'));
+        $users = $instansi->users;
+        $grafiks = GrafikTrafik::where('instansi_id', $instansi->id)->get();
+
+        return view('admin.traficclient.monitoring', [
+            'instansi' => $instansi,
+            'users' => $users,
+            'grafiks' => $grafiks,
+        ]);
+    }
+
+    public function detailInstansi($id)
+    {
+        $instansi = Instansi::findOrFail($id);
+        $users = $instansi->users;
+        $grafiks = GrafikTrafik::where('instansi_id', $id)->get();
+
+        return view('admin.traficclient.monitoring', compact('instansi', 'grafiks'));
     }
 }

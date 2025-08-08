@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Client\DashboardController as ClientDashboardController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\GrafikTrafikController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,6 +39,8 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::post('/register-instansi', [RegisterController::class, 'registerInstansi'])->name('register.instansi.submit');
     Route::get('/trafik-client', [AdminDashboardController::class, 'trafikClient'])->name('admin.trafik-client');
     Route::get('/trafik-client/{id}', [AdminDashboardController::class, 'showInstansiMonitoring'])->name('admin.instansi.monitoring');
+    Route::get('/grafik/create', [GrafikTrafikController::class, 'create'])->name('admin.grafik.create');
+    Route::post('/grafik', [GrafikTrafikController::class, 'store'])->name('admin.grafik.store');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {
