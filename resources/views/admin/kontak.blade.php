@@ -59,5 +59,22 @@
         </div>
 
     </div>
+
+    <!-- Lokasi Kami -->
+    <div class="mt-10">
+        <h2 class="text-center text-2xl font-bold mb-6">Lokasi Kami</h2>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.6358894819355!2d106.8635234750406!3d-6.567556793425691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c71ef8409a65%3A0x4731ca3bea89e471!2sPt.%20Lintas%20Citra%20Abadi!5e0!3m2!1sen!2sid!4v1754906891240!5m2!1sen!2sid" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
 </div>
 @endsection

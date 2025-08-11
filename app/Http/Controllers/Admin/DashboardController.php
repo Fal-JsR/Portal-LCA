@@ -115,4 +115,37 @@ class DashboardController extends Controller
     {
         return view('admin.kontak');
     }
+
+    public function edit()
+    {
+        return view('admin.profile.edit.edit');
+    }
+
+    public function editInstansi()
+    {
+        $instansis = Instansi::with('users')->get();
+        return view('admin.profile.edit.editinstansi', compact('instansis'));
+    }
+
+    public function updateInstansi(Request $request, $id)
+    {
+        $request->validate([
+            'nama_instansi' => 'required|string|max:255',
+        ]);
+
+        $instansi = Instansi::findOrFail($id);
+        $instansi->update([
+            'nama_instansi' => $request->nama_instansi,
+        ]);
+
+        return redirect()->route('admin.edit.instansi')->with('success', 'Instansi berhasil diupdate!');
+    }
+
+    public function deleteInstansi($id)
+    {
+        $instansi = Instansi::findOrFail($id);
+        $instansi->delete();
+
+        return redirect()->route('admin.edit.instansi')->with('success', 'Instansi berhasil dihapus!');
+    }
 }

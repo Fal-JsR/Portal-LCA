@@ -42,6 +42,10 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/grafik/create', [GrafikTrafikController::class, 'create'])->name('admin.grafik.create');
     Route::post('/grafik', [GrafikTrafikController::class, 'store'])->name('admin.grafik.store');
     Route::get('/kontak', [AdminDashboardController::class, 'kontak'])->name('admin.kontak');
+    Route::get('/edit', [AdminDashboardController::class, 'edit'])->name('admin.edit');
+    Route::get('/edit/instansi', [AdminDashboardController::class, 'editInstansi'])->name('admin.edit.instansi');
+    Route::put('/instansi/{id}', [AdminDashboardController::class, 'updateInstansi'])->name('admin.update.instansi');
+    Route::delete('/instansi/{id}', [AdminDashboardController::class, 'deleteInstansi'])->name('admin.delete.instansi');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {
