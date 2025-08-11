@@ -111,12 +111,8 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function detailInstansi($id)
+    public function kontak()
     {
-        $instansi = Instansi::findOrFail($id);
-        $users = $instansi->users;
-        $grafiks = GrafikTrafik::where('instansi_id', $id)->get();
-
-        return view('admin.traficclient.monitoring', compact('instansi', 'grafiks'));
+        return view('admin.kontak');
     }
 }

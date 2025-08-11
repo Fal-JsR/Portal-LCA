@@ -41,6 +41,7 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/trafik-client/{id}', [AdminDashboardController::class, 'showInstansiMonitoring'])->name('admin.instansi.monitoring');
     Route::get('/grafik/create', [GrafikTrafikController::class, 'create'])->name('admin.grafik.create');
     Route::post('/grafik', [GrafikTrafikController::class, 'store'])->name('admin.grafik.store');
+    Route::get('/kontak', [AdminDashboardController::class, 'kontak'])->name('admin.kontak');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {

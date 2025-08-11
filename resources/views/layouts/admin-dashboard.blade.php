@@ -30,7 +30,7 @@
                         'Trafik Client' => route('admin.trafik-client'),
                         'Record Maintenance' => '#',
                         'FAQ' => '#',
-                        'Kontak' => '#',
+                        'Kontak' => route('admin.kontak'),
                         'Kontrak Pelanggan' => '#',
                         'Profil' => route('admin.profile'),
                     ];
