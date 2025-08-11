@@ -56,7 +56,7 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $instansi->users->count() }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $instansi->created_at->format('d M Y') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <button onclick="openEditModal({{ $instansi->id }}, '{{ $instansi->nama_instansi }}')" 
+                            <button onclick="openEditModal({{ $instansi->id }}, '{{ $instansi->nama_instansi }}', '{{ $instansi->created_at->format('Y-m-d') }}')" 
                                     class="text-indigo-600 hover:text-indigo-900 mr-3">
                                 <i class="fas fa-edit mr-1"></i>Edit
                             </button>
@@ -104,6 +104,13 @@
                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
                        required>
             </div>
+
+            <div class="mb-4">
+                <label for="edit_created_at" class="block text-sm font-medium text-gray-700 mb-2">Tanggal Dibuat</label>
+                <input type="date" id="edit_created_at" name="created_at" 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                       required>
+            </div>
             
             <div class="flex justify-end space-x-3">
                 <button type="button" onclick="closeEditModal()" 
@@ -148,8 +155,9 @@
 </div>
 
 <script>
-    function openEditModal(id, nama) {
+    function openEditModal(id, nama, created_at) {
         document.getElementById('edit_nama_instansi').value = nama;
+        document.getElementById('edit_created_at').value = created_at;
         document.getElementById('editForm').action = `/admin/instansi/${id}`;
         document.getElementById('editModal').classList.remove('hidden');
         document.getElementById('editModal').classList.add('flex');

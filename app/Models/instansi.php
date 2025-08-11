@@ -10,6 +10,7 @@ class Instansi extends Model
 
     protected $fillable = [
         'nama_instansi',
+        'created_at',
     ];
 
     /**

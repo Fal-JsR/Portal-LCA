@@ -97,7 +97,7 @@ class DashboardController extends Controller
     public function trafikClient()
     {
         $instansis = Instansi::all();
-        return view('admin.traficclient.trraficclient', compact('instansis'));
+        return view('admin.traficclient.traficclient', compact('instansis'));
     }
 
     public function showInstansiMonitoring($id)
@@ -133,11 +133,13 @@ class DashboardController extends Controller
     {
         $request->validate([
             'nama_instansi' => 'required|string|max:255',
+            'created_at' => 'required|date',
         ]);
 
         $instansi = Instansi::findOrFail($id);
         $instansi->update([
             'nama_instansi' => $request->nama_instansi,
+            'created_at' => $request->created_at,
         ]);
 
         return redirect()->route('admin.edit.instansi')->with('success', 'Instansi berhasil diupdate!');
