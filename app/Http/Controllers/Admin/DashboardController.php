@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Instansi;
 use App\Models\GrafikTrafik;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -95,7 +97,7 @@ class DashboardController extends Controller
     public function trafikClient()
     {
         $instansis = Instansi::all();
-        return view('admin.traficclient.traficclient', compact('instansis'));
+        return view('admin.traficclient.trraficclient', compact('instansis'));
     }
 
     public function showInstansiMonitoring($id)
@@ -147,5 +149,54 @@ class DashboardController extends Controller
         $instansi->delete();
 
         return redirect()->route('admin.edit.instansi')->with('success', 'Instansi berhasil dihapus!');
+    }
+
+    public function editUser()
+    {
+        $users = User::with('instansi')->get();
+        $instansis = Instansi::all();
+        return view('admin.profile.edit.edituser', compact('users', 'instansis'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,' . $id,
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'role' => 'required|in:admin,client',
+            'instansi_id' => 'nullable|exists:instansis,id',
+            'password' => 'nullable|string|min:8',
+        ]);
+
+        $updateData = [
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'role' => $request->role,
+            'instansi_id' => $request->instansi_id,
+        ];
+
+        if ($request->filled('password')) {
+            $updateData['password'] = Hash::make($request->password);
+        }
+
+        $user->update($updateData);
+
+        return redirect()->route('admin.edit.user')->with('success', 'User berhasil diupdate!');
+    }
+
+    public function deleteUser($id)
+    {
+        if ($id == auth()->id()) {
+            return redirect()->route('admin.edit.user')->with('error', 'Anda tidak dapat menghapus akun sendiri!');
+        }
+
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('admin.edit.user')->with('success', 'User berhasil dihapus!');
     }
 }

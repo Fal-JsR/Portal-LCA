@@ -46,6 +46,9 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/edit/instansi', [AdminDashboardController::class, 'editInstansi'])->name('admin.edit.instansi');
     Route::put('/instansi/{id}', [AdminDashboardController::class, 'updateInstansi'])->name('admin.update.instansi');
     Route::delete('/instansi/{id}', [AdminDashboardController::class, 'deleteInstansi'])->name('admin.delete.instansi');
+    Route::get('/edit/user', [AdminDashboardController::class, 'editUser'])->name('admin.edit.user');
+    Route::put('/user/{id}', [AdminDashboardController::class, 'updateUser'])->name('admin.update.user');
+    Route::delete('/user/{id}', [AdminDashboardController::class, 'deleteUser'])->name('admin.delete.user');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {
