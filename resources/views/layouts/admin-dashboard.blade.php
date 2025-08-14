@@ -22,17 +22,122 @@
             </div>
 
             <nav class="flex-1 overflow-y-auto mt-6 lg:mt-4 space-y-3 lg:space-y-2 px-6 lg:px-4">
+                <!-- Home Menu -->
+                <a href="{{ route('admin.dashboard') }}" class="block py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                    Home
+                </a>
+
+                <!-- Link Dropdown Menu -->
+                <div class="relative">
+                    <button onclick="toggleSidebarDropdown('linkDropdownMenu', 'linkDropdownIcon')" 
+                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                        <span>Link</span>
+                        <i id="linkDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Dropdown Content -->
+                    <div id="linkDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
+                        <a href="https://drive.google.com/file/d/1Hvq9u-7RM_FdiBbxEbfQWO7yAwTp5aqT/view?pli=1" 
+                           target="_blank"
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-project-diagram text-green-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Topologi LCA</span>
+                            <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
+                        </a>
+
+                        <a href="http://103.156.225.17/cacti/" 
+                           target="_blank"
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-chart-line text-blue-400 mr-3 text-base lg:text-sm"></i>
+                            <span>MRTG</span>
+                            <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
+                        </a>
+
+                        <a href="https://nms-lca.mendek.in/index.htm" 
+                           target="_blank"
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-network-wired text-purple-400 mr-3 text-base lg:text-sm"></i>
+                            <span>PRTG</span>
+                            <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
+                        </a>
+
+                        <a href="https://www.jotform.com/app/242970110347451" 
+                           target="_blank"
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-users text-orange-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Portal HRD</span>
+                            <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trafik LCA Dropdown Menu -->
+                <div class="relative">
+                    <button onclick="toggleSidebarDropdown('trafikLcaDropdownMenu', 'trafikLcaDropdownIcon')" 
+                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                        <span>Trafik LCA</span>
+                        <i id="trafikLcaDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Dropdown Content -->
+                    <div id="trafikLcaDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
+                        <a href="{{ route('admin.live-monitoring') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-broadcast-tower text-green-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Live Monitoring</span>
+                        </a>
+
+                        <a href="{{ route('admin.upstream') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-arrow-up text-blue-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Upstream</span>
+                        </a>
+
+                        <a href="{{ route('admin.downstream') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-arrow-down text-purple-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Downstream</span>
+                        </a>
+
+                        <a href="{{ route('admin.ping') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-signal text-orange-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Ping</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profil Dropdown Menu -->
+                <div class="relative">
+                    <button onclick="toggleSidebarDropdown('profilDropdownMenu', 'profilDropdownIcon')" 
+                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                        <span>Profil</span>
+                        <i id="profilDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Dropdown Content -->
+                    <div id="profilDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
+                        <a href="{{ route('admin.register') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-user-plus text-green-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Registrasi</span>
+                        </a>
+
+                        <a href="{{ route('admin.edit') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-edit text-blue-400 mr-3 text-base lg:text-sm"></i>
+                            <span>Edit Data</span>
+                        </a>
+                    </div>
+                </div>
+
                 @php
                     $menus = [
-                        'Home' => route('admin.dashboard'),
-                        'Link' => route('admin.link'),
-                        'Trafik LCA' => route('admin.trafik-lca'),
                         'Trafik Client' => route('admin.trafik-client'),
                         'Record Maintenance' => '#',
                         'FAQ' => route('admin.faq.fiber'),
                         'Kontak' => route('admin.kontak'),
                         'Kontrak Pelanggan' => '#',
-                        'Profil' => route('admin.profile'),
                     ];
                 @endphp
 
@@ -112,6 +217,76 @@
                 document.body.style.overflow = '';
             }
         });
+
+        // Sidebar dropdown functionality
+        function toggleSidebarDropdown(dropdownId, iconId) {
+            const dropdown = document.getElementById(dropdownId);
+            const icon = document.getElementById(iconId);
+            
+            // Close all other dropdowns first
+            const allDropdowns = ['linkDropdownMenu', 'trafikLcaDropdownMenu', 'profilDropdownMenu'];
+            const allIcons = ['linkDropdownIcon', 'trafikLcaDropdownIcon', 'profilDropdownIcon'];
+            
+            allDropdowns.forEach((id, index) => {
+                if (id !== dropdownId) {
+                    const otherDropdown = document.getElementById(id);
+                    const otherIcon = document.getElementById(allIcons[index]);
+                    if (!otherDropdown.classList.contains('hidden')) {
+                        otherDropdown.style.animation = 'slideUp 0.3s ease-out';
+                        otherIcon.style.transform = 'rotate(0deg)';
+                        setTimeout(() => {
+                            otherDropdown.classList.add('hidden');
+                        }, 300);
+                    }
+                }
+            });
+            
+            if (dropdown.classList.contains('hidden')) {
+                // Show dropdown
+                dropdown.classList.remove('hidden');
+                dropdown.style.animation = 'slideDown 0.3s ease-out';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                // Hide dropdown
+                dropdown.style.animation = 'slideUp 0.3s ease-out';
+                icon.style.transform = 'rotate(0deg)';
+                
+                setTimeout(() => {
+                    dropdown.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    max-height: 0;
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                    max-height: 200px;
+                }
+            }
+            
+            @keyframes slideUp {
+                from {
+                    opacity: 1;
+                    transform: translateY(0);
+                    max-height: 200px;
+                }
+                to {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    max-height: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
