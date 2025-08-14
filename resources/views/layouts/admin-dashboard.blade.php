@@ -29,7 +29,7 @@
                         'Trafik LCA' => route('admin.trafik-lca'),
                         'Trafik Client' => route('admin.trafik-client'),
                         'Record Maintenance' => '#',
-                        'FAQ' => '#',
+                        'FAQ' => route('admin.faq.fiber'),
                         'Kontak' => route('admin.kontak'),
                         'Kontrak Pelanggan' => '#',
                         'Profil' => route('admin.profile'),

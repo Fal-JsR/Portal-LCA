@@ -49,6 +49,7 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/edit/user', [AdminDashboardController::class, 'editUser'])->name('admin.edit.user');
     Route::put('/user/{id}', [AdminDashboardController::class, 'updateUser'])->name('admin.update.user');
     Route::delete('/user/{id}', [AdminDashboardController::class, 'deleteUser'])->name('admin.delete.user');
+    Route::get('/faq/fiber', [AdminDashboardController::class, 'faqFiber'])->name('admin.faq.fiber');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {

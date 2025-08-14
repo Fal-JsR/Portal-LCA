@@ -201,4 +201,9 @@ class DashboardController extends Controller
 
         return redirect()->route('admin.edit.user')->with('success', 'User berhasil dihapus!');
     }
+
+    public function faqFiber()
+    {
+        return view('admin.faq.faqfiber');
+    }
 }
