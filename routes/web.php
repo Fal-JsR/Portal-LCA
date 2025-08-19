@@ -41,6 +41,9 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/trafik-client/{id}', [AdminDashboardController::class, 'showInstansiMonitoring'])->name('admin.instansi.monitoring');
     Route::get('/grafik/create', [GrafikTrafikController::class, 'create'])->name('admin.grafik.create');
     Route::post('/grafik', [GrafikTrafikController::class, 'store'])->name('admin.grafik.store');
+    Route::get('/edit/grafik', [GrafikTrafikController::class, 'editGrafik'])->name('admin.edit.grafik');
+    Route::put('/grafik/{id}', [GrafikTrafikController::class, 'updateGrafik'])->name('admin.update.grafik');
+    Route::delete('/grafik/{id}', [GrafikTrafikController::class, 'deleteGrafik'])->name('admin.delete.grafik');
     Route::get('/kontak', [AdminDashboardController::class, 'kontak'])->name('admin.kontak');
     Route::get('/edit', [AdminDashboardController::class, 'edit'])->name('admin.edit');
     Route::get('/edit/instansi', [AdminDashboardController::class, 'editInstansi'])->name('admin.edit.instansi');
@@ -49,7 +52,13 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/edit/user', [AdminDashboardController::class, 'editUser'])->name('admin.edit.user');
     Route::put('/user/{id}', [AdminDashboardController::class, 'updateUser'])->name('admin.update.user');
     Route::delete('/user/{id}', [AdminDashboardController::class, 'deleteUser'])->name('admin.delete.user');
+    Route::get('/faq', [AdminDashboardController::class, 'faqIndex'])->name('admin.faq.index');
     Route::get('/faq/fiber', [AdminDashboardController::class, 'faqFiber'])->name('admin.faq.fiber');
+    Route::get('/faq/wireless', [AdminDashboardController::class, 'faqWireless'])->name('admin.faq.wireless');
+    Route::get('/record', [AdminDashboardController::class, 'recordIndex'])->name('admin.record.index');
+    Route::get('/record/input', [AdminDashboardController::class, 'inputRecord'])->name('admin.record.input');
+    Route::post('/record', [AdminDashboardController::class, 'storeRecord'])->name('admin.record.store');
+    Route::get('/record/maintenance/{id}', [AdminDashboardController::class, 'recordMaintenance'])->name('admin.record.maintenance');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {

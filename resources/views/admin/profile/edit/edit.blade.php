@@ -17,7 +17,7 @@
 
         <div class="bg-white shadow-lg rounded-2xl p-6">
             <h3 class="text-xl font-semibold text-gray-800 mb-2">EDIT GRAFIK</h3>
-            <a href="#" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Edit Grafik</a>
+            <a href="{{ route('admin.edit.grafik') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Edit Grafik</a>
         </div>
     </div>
 </div>

@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Instansi;
 use App\Models\GrafikTrafik;
 use App\Models\User;
+use App\Models\RecordMaintenance;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -202,8 +204,63 @@ class DashboardController extends Controller
         return redirect()->route('admin.edit.user')->with('success', 'User berhasil dihapus!');
     }
 
+    public function faqIndex()
+    {
+        return view('admin.faq.faqindex');
+    }
+
     public function faqFiber()
     {
         return view('admin.faq.faqfiber');
+    }
+
+    public function faqWireless()
+    {
+        return view('admin.faq.faqwireless');
+    }
+
+    public function recordIndex()
+    {
+        $instansis = Instansi::with('users')->get();
+        return view('admin.record.recordindex', compact('instansis'));
+    }
+
+    public function inputRecord()
+    {
+        $instansis = Instansi::all();
+        return view('admin.record.inputrecord', compact('instansis'));
+    }
+
+    public function storeRecord(Request $request)
+    {
+        $request->validate([
+            'instansi_id' => 'required|exists:instansis,id',
+            'jenis' => 'required|in:Kunjungan,Perbaikan',
+            'permasalahan' => 'required|string',
+            'solusi' => 'required|string',
+            'gambar' => 'nullable|image|max:2048',
+        ]);
+
+        $gambarPath = null;
+        if ($request->hasFile('gambar')) {
+            $gambarPath = $request->file('gambar')->store('maintenance', 'public');
+        }
+
+        RecordMaintenance::create([
+            'instansi_id' => $request->instansi_id,
+            'jenis' => $request->jenis,
+            'permasalahan' => $request->permasalahan,
+            'solusi' => $request->solusi,
+            'gambar' => $gambarPath,
+        ]);
+
+        return redirect()->route('admin.record.index')->with('success', 'Record maintenance berhasil disimpan!');
+    }
+
+    public function recordMaintenance($id)
+    {
+        $instansi = Instansi::findOrFail($id);
+        $records = RecordMaintenance::where('instansi_id', $id)->latest()->get();
+        return view('admin.record.recordmaintenance', compact('instansi', 'records'));
     }
 }

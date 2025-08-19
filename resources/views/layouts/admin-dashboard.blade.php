@@ -131,11 +131,33 @@
                     </div>
                 </div>
 
+                <!-- FAQ Dropdown Menu -->
+                <div class="relative">
+                    <button onclick="toggleSidebarDropdown('faqDropdownMenu', 'faqDropdownIcon')" 
+                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                        <span>FAQ</span>
+                        <i id="faqDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Dropdown Content -->
+                    <div id="faqDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
+                        <a href="{{ route('admin.faq.fiber') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-fiber-new text-green-400 mr-3 text-base lg:text-sm"></i>
+                            <span>FAQ Fiber Optic</span>
+                        </a>
+                        <a href="{{ route('admin.faq.wireless') }}" 
+                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-wifi text-orange-400 mr-3 text-base lg:text-sm"></i>
+                            <span>FAQ Wireless</span>
+                        </a>
+                    </div>
+                </div>
+
                 @php
                     $menus = [
                         'Trafik Client' => route('admin.trafik-client'),
-                        'Record Maintenance' => '#',
-                        'FAQ' => route('admin.faq.fiber'),
+                        'Record Maintenance' => route('admin.record.index'),
                         'Kontak' => route('admin.kontak'),
                         'Kontrak Pelanggan' => '#',
                     ];
@@ -224,14 +246,14 @@
             const icon = document.getElementById(iconId);
             
             // Close all other dropdowns first
-            const allDropdowns = ['linkDropdownMenu', 'trafikLcaDropdownMenu', 'profilDropdownMenu'];
-            const allIcons = ['linkDropdownIcon', 'trafikLcaDropdownIcon', 'profilDropdownIcon'];
+            const allDropdowns = ['linkDropdownMenu', 'trafikLcaDropdownMenu', 'profilDropdownMenu', 'faqDropdownMenu'];
+            const allIcons = ['linkDropdownIcon', 'trafikLcaDropdownIcon', 'profilDropdownIcon', 'faqDropdownIcon'];
             
             allDropdowns.forEach((id, index) => {
                 if (id !== dropdownId) {
                     const otherDropdown = document.getElementById(id);
                     const otherIcon = document.getElementById(allIcons[index]);
-                    if (!otherDropdown.classList.contains('hidden')) {
+                    if (otherDropdown && !otherDropdown.classList.contains('hidden')) {
                         otherDropdown.style.animation = 'slideUp 0.3s ease-out';
                         otherIcon.style.transform = 'rotate(0deg)';
                         setTimeout(() => {
