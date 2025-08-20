@@ -1,11 +1,19 @@
 @extends('layouts.admin-dashboard')
 
 @section('content')
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-2 text-center text-blue-600">Frequently Asked Question (FAQ) Fiber Optic</h1>
-    <p class="text-center text-gray-600 mb-8">Panduan troubleshooting untuk masalah koneksi fiber optic</p>
+<style>
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(20px);}
+        100% { opacity: 1; transform: translateY(0);}
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+</style>
+<div class="container mx-auto px-4 py-10">
+    <h1 class="text-4xl font-extrabold text-center text-blue-600 tracking-wide fade-up mb-2">Frequently Asked Question (FAQ) Fiber Optic</h1>
+    <span class="block w-28 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-8 rounded-full fade-up"></span>
+    <p class="text-center text-gray-600 mb-8 fade-up">Panduan troubleshooting untuk masalah koneksi fiber optic</p>
 
-    <div class="max-w-4xl mx-auto space-y-4">
+    <div class="max-w-4xl mx-auto space-y-4 fade-up">
         <!-- FAQ Item 1 -->
         <div class="faq-item bg-blue-50 rounded-2xl overflow-hidden shadow-md">
             <div class="faq-question px-6 py-4 cursor-pointer flex items-center justify-between font-semibold text-gray-800 hover:bg-blue-100 transition-colors" onclick="toggleFAQ(this)">
@@ -110,7 +118,7 @@
     </div>
 
     <!-- Back Button -->
-    <div class="text-center mt-8">
+    <div class="text-center mt-8 fade-up">
         <a href="{{ route('admin.dashboard') }}" class="px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors">
             <i class="fas fa-arrow-left mr-2"></i>Kembali ke Dashboard
         </a>

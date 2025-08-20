@@ -1,6 +1,13 @@
 @extends('layouts.admin-dashboard')
 @section('content')
-<div class="max-w-6xl mx-auto py-10">
+<style>
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(20px);}
+        100% { opacity: 1; transform: translateY(0);}
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+</style>
+<div class="max-w-6xl mx-auto py-10 fade-up">
     <!-- Judul -->
     <h2 class="text-center text-2xl font-bold mb-8">Hubungi Kami</h2>
 
