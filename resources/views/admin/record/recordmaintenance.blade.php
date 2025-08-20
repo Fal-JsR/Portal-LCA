@@ -13,20 +13,24 @@
                 </span>
             </div>
             <div class="mb-2">
-                <strong>Permasalahan:</strong>
-                <div class="text-gray-700">{{ $record->permasalahan }}</div>
+                <strong>Keluhan/Kendala:</strong>
+                <div class="text-gray-700">{{ $record->keluhan }}</div>
             </div>
             <div class="mb-2">
-                <strong>Solusi / Pekerjaan:</strong>
-                <div class="text-gray-700">{{ $record->solusi }}</div>
+                <strong>Status Pekerjaan:</strong>
+                <div class="text-gray-700">{{ $record->status }}</div>
             </div>
             @if($record->gambar)
             <div class="mb-2">
                 <strong>Gambar:</strong><br>
-                <img src="{{ asset('storage/' . $record->gambar) }}"
-                     alt="Gambar Maintenance"
-                     class="w-full h-auto max-h-48 object-cover rounded mt-2 cursor-pointer"
-                     onclick="openImagePopup('{{ asset('storage/' . $record->gambar) }}')">
+                <div class="flex flex-wrap gap-2 mt-2">
+                    @foreach(json_decode($record->gambar, true) ?? [] as $img)
+                        <img src="{{ asset('storage/' . $img) }}"
+                             alt="Gambar Maintenance"
+                             class="w-32 h-32 object-cover rounded cursor-pointer"
+                             onclick="openImagePopup('{{ asset('storage/' . $img) }}')">
+                    @endforeach
+                </div>
             </div>
             @endif
             <div class="text-xs text-gray-500 mt-2">Tanggal: {{ $record->created_at->format('d M Y H:i') }}</div>

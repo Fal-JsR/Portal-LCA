@@ -10,11 +10,16 @@ return new class extends Migration
     {
         Schema::create('record_maintenances', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->date('tanggal');
             $table->foreignId('instansi_id')->constrained()->onDelete('cascade');
+            $table->string('nama_perusahaan_tambahan')->nullable();
+            $table->text('keluhan');
+            $table->string('status');
+            $table->text('keterangan_progress')->nullable();
+            $table->string('kebutuhan_perangkat')->nullable();
             $table->enum('jenis', ['Kunjungan', 'Perbaikan']);
-            $table->text('permasalahan');
-            $table->text('solusi');
-            $table->string('gambar')->nullable();
+            $table->json('gambar')->nullable();
             $table->timestamps();
         });
     }

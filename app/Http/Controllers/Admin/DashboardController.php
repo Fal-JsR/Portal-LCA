@@ -10,6 +10,9 @@ use App\Models\User;
 use App\Models\RecordMaintenance;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Response;
+use App\Exports\RecordMaintenanceExport;
 
 class DashboardController extends Controller
 {
@@ -99,7 +102,7 @@ class DashboardController extends Controller
     public function trafikClient()
     {
         $instansis = Instansi::all();
-        return view('admin.traficclient.traficclient', compact('instansis'));
+        return view('admin.traficclient.trraficclient', compact('instansis'));
     }
 
     public function showInstansiMonitoring($id)
@@ -108,7 +111,7 @@ class DashboardController extends Controller
         $users = $instansi->users;
         $grafiks = GrafikTrafik::where('instansi_id', $instansi->id)->get();
 
-        return view('admin.traficclient.monitoring', [
+        return view('admin.trraficclient.monitoring', [
             'instansi' => $instansi,
             'users' => $users,
             'grafiks' => $grafiks,
@@ -234,24 +237,38 @@ class DashboardController extends Controller
     public function storeRecord(Request $request)
     {
         $request->validate([
+            'nama' => 'required|string|max:255',
+            'tanggal' => 'required|date',
             'instansi_id' => 'required|exists:instansis,id',
+            'nama_perusahaan_tambahan' => 'nullable|string|max:255',
+            'keluhan' => 'required|string',
+            'status' => 'required|in:Selesai,Progress,Pending',
+            'keterangan_progress' => 'nullable|string',
+            'kebutuhan_perangkat' => 'nullable|string|max:255',
             'jenis' => 'required|in:Kunjungan,Perbaikan',
-            'permasalahan' => 'required|string',
-            'solusi' => 'required|string',
-            'gambar' => 'nullable|image|max:2048',
+            'gambar.*' => 'nullable|image|max:2048',
         ]);
 
-        $gambarPath = null;
+        $gambarPaths = [];
         if ($request->hasFile('gambar')) {
-            $gambarPath = $request->file('gambar')->store('maintenance', 'public');
+            foreach ($request->file('gambar') as $key => $file) {
+                if ($key < 5) {
+                    $gambarPaths[] = $file->store('maintenance', 'public');
+                }
+            }
         }
 
         RecordMaintenance::create([
+            'nama' => $request->nama,
+            'tanggal' => $request->tanggal,
             'instansi_id' => $request->instansi_id,
+            'nama_perusahaan_tambahan' => $request->nama_perusahaan_tambahan,
+            'keluhan' => $request->keluhan,
+            'status' => $request->status,
+            'keterangan_progress' => $request->keterangan_progress,
+            'kebutuhan_perangkat' => $request->kebutuhan_perangkat,
             'jenis' => $request->jenis,
-            'permasalahan' => $request->permasalahan,
-            'solusi' => $request->solusi,
-            'gambar' => $gambarPath,
+            'gambar' => json_encode($gambarPaths),
         ]);
 
         return redirect()->route('admin.record.index')->with('success', 'Record maintenance berhasil disimpan!');
@@ -262,5 +279,90 @@ class DashboardController extends Controller
         $instansi = Instansi::findOrFail($id);
         $records = RecordMaintenance::where('instansi_id', $id)->latest()->get();
         return view('admin.record.recordmaintenance', compact('instansi', 'records'));
+    }
+
+    public function exportRecord()
+    {
+        $records = RecordMaintenance::with('instansi')->get();
+
+        // Header kolom sesuai format gambar
+        $header = [
+            'Nama',
+            'Tanggal',
+            'Nama Perusahaan',
+            'Nama Perusahaan Tambahan',
+            'Keluhan/Kendala',
+            'Status Pekerjaan',
+            'Keterangan Progress/Pending',
+            'Kebutuhan Perangkat',
+            'Jenis',
+            'Gambar'
+        ];
+
+        $rows = [];
+        foreach ($records as $record) {
+            $gambarList = '';
+            if ($record->gambar) {
+                $gambarArr = json_decode($record->gambar, true) ?? [];
+                $gambarList = implode(', ', array_map(function($img) {
+                    return asset('storage/' . $img);
+                }, $gambarArr));
+            }
+            $rows[] = [
+                $record->nama,
+                $record->tanggal,
+                $record->instansi->nama_instansi ?? '',
+                $record->nama_perusahaan_tambahan,
+                $record->keluhan,
+                $record->status,
+                $record->keterangan_progress,
+                $record->kebutuhan_perangkat,
+                $record->jenis,
+                $gambarList
+            ];
+        }
+
+        // Buat file CSV (bisa dibuka di Excel)
+        $filename = 'record_maintenance_' . date('Ymd_His') . '.csv';
+        $handle = fopen('php://temp', 'r+');
+        fputcsv($handle, $header);
+        foreach ($rows as $row) {
+            fputcsv($handle, $row);
+        }
+        rewind($handle);
+        $csv = stream_get_contents($handle);
+        fclose($handle);
+
+        return Response::make($csv, 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+        ]);
+    }
+
+    public function exportRecordPage()
+    {
+        return view('admin.record.exportrecord');
+    }
+
+    public function exportRecordExcel(Request $request)
+    {
+        // Filter data sesuai range
+        $query = RecordMaintenance::with('instansi');
+        if ($request->range === 'bulan' && $request->bulan) {
+            $bulan = $request->bulan;
+            $start = $bulan . '-01';
+            $end = date('Y-m-t', strtotime($start));
+            $query->whereBetween('tanggal', [$start, $end]);
+        } elseif ($request->range === 'minggu' && $request->minggu) {
+            $minggu = $request->minggu;
+            $start = date('Y-m-d', strtotime($minggu));
+            $end = date('Y-m-d', strtotime($minggu . ' +6 days'));
+            $query->whereBetween('tanggal', [$start, $end]);
+        } elseif ($request->range === 'custom' && $request->start && $request->end) {
+            $query->whereBetween('tanggal', [$request->start, $request->end]);
+        }
+        $records = $query->get();
+
+        return Excel::download(new RecordMaintenanceExport($records), 'record_maintenance_' . date('Ymd_His') . '.xlsx');
     }
 }

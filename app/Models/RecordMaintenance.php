@@ -10,10 +10,15 @@ class RecordMaintenance extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nama',
+        'tanggal',
         'instansi_id',
+        'nama_perusahaan_tambahan',
+        'keluhan',
+        'status',
+        'keterangan_progress',
+        'kebutuhan_perangkat',
         'jenis',
-        'permasalahan',
-        'solusi',
         'gambar',
     ];
 

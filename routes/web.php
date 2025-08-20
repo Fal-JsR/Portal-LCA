@@ -59,6 +59,8 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/record/input', [AdminDashboardController::class, 'inputRecord'])->name('admin.record.input');
     Route::post('/record', [AdminDashboardController::class, 'storeRecord'])->name('admin.record.store');
     Route::get('/record/maintenance/{id}', [AdminDashboardController::class, 'recordMaintenance'])->name('admin.record.maintenance');
+    Route::get('/record/export', [AdminDashboardController::class, 'exportRecordPage'])->name('admin.record.export.page');
+    Route::get('/record/export/excel', [AdminDashboardController::class, 'exportRecordExcel'])->name('admin.record.export.excel');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {

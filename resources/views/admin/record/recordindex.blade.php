@@ -18,6 +18,19 @@
                 </a>
             </div>
 
+            <!-- Card Export Record -->
+            <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-file-export text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-800">Export Record Maintenance</h3>
+                </div>
+                <p class="text-sm text-gray-600 mb-4">Download semua data record maintenance dalam format Excel.</p>
+                <a href="{{ route('admin.record.export.page') }}"
+                    class="inline-block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+                    <i class="fas fa-download mr-2"></i>Export Record
+                </a>
+            </div>
+
             <!-- Daftar Instansi -->
             @forelse($instansis as $instansi)
                 <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition-shadow duration-300">
