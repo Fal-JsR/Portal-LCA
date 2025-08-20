@@ -102,7 +102,7 @@ class DashboardController extends Controller
     public function trafikClient()
     {
         $instansis = Instansi::all();
-        return view('admin.traficclient.trraficclient', compact('instansis'));
+        return view('admin.traficclient.traficclient', compact('instansis'));
     }
 
     public function showInstansiMonitoring($id)
@@ -111,12 +111,12 @@ class DashboardController extends Controller
         $users = $instansi->users;
         $grafiks = GrafikTrafik::where('instansi_id', $instansi->id)->get();
 
-        return view('admin.trraficclient.monitoring', [
+        return view('admin.traficclient.monitoring', [
             'instansi' => $instansi,
             'users' => $users,
             'grafiks' => $grafiks,
         ]);
-    }
+    }   
 
     public function kontak()
     {
