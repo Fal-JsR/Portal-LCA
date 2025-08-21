@@ -41,11 +41,9 @@
                     </button>
                     <div id="faqDropdownMenu" class="hidden mt-1 space-y-1 pl-4">
                         <a href="{{ route('client.faq.fiber') }}" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
-                            <i class="fas fa-fiber-new text-green-400 mr-2"></i>
                             <span>FAQ Fiber Optic</span>
                         </a>
                         <a href="{{ route('client.faq.wireless') }}" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
-                            <i class="fas fa-wifi text-orange-400 mr-2"></i>
                             <span>FAQ Wireless</span>
                         </a>
                     </div>

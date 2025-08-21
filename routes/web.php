@@ -71,7 +71,7 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {
     Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('client.dashboard');
     Route::get('/link', [ClientDashboardController::class, 'link'])->name('client.link');
-    Route::get('/kontak', fn() => view('client.kontrak.kontak'))->name('client.kontak');
+    Route::get('/kontak', fn() => view('client.kontak.kontak'))->name('client.kontak');
     Route::get('/faq', fn() => view('client.faq.faqindex'))->name('client.faq.index');
     Route::get('/faq/fiber', fn() => view('client.faq.faqfiber'))->name('client.faq.fiber');
     Route::get('/faq/wireless', fn() => view('client.faq.faqwireless'))->name('client.faq.wireless');
