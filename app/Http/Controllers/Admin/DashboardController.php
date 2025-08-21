@@ -8,6 +8,7 @@ use App\Models\Instansi;
 use App\Models\GrafikTrafik;
 use App\Models\User;
 use App\Models\RecordMaintenance;
+use App\Models\KontrakPelanggan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
@@ -364,5 +365,67 @@ class DashboardController extends Controller
         $records = $query->get();
 
         return Excel::download(new RecordMaintenanceExport($records), 'record_maintenance_' . date('Ymd_His') . '.xlsx');
+    }
+
+    public function indexKontrak()
+    {
+        $instansis = Instansi::all();
+        return view('admin.kontrak.indexkontrak', compact('instansis'));
+    }
+
+    public function showKontrak($id)
+    {
+        $instansi = Instansi::findOrFail($id);
+        $kontrak = KontrakPelanggan::where('instansi_id', $id)->first();
+        return view('admin.kontrak.kontrak', compact('instansi', 'kontrak'));
+    }
+
+    public function uploadKontrak(Request $request, $id, $type)
+    {
+        $request->validate([
+            'pdf' => 'required|mimes:pdf|max:4096',
+        ]);
+        $instansi = Instansi::findOrFail($id);
+        $kontrak = KontrakPelanggan::firstOrNew(['instansi_id' => $id]);
+        $path = $request->file('pdf')->store('kontrak', 'public');
+        if ($type === 'form') {
+            $kontrak->form_pdf = $path;
+        } else {
+            $kontrak->kontrak_pdf = $path;
+        }
+        $kontrak->instansi_id = $id;
+        $kontrak->save();
+        return back()->with('success', 'PDF berhasil diupload!');
+    }
+
+    public function editKontrakPdf(Request $request, $id, $type)
+    {
+        $request->validate([
+            'pdf' => 'required|mimes:pdf|max:4096',
+        ]);
+        $kontrak = KontrakPelanggan::findOrFail($id);
+        $path = $request->file('pdf')->store('kontrak', 'public');
+        if ($type === 'form') {
+            $kontrak->form_pdf = $path;
+        } else {
+            $kontrak->kontrak_pdf = $path;
+        }
+        $kontrak->save();
+        return back()->with('success', 'PDF berhasil diupdate!');
+    }
+
+    public function deleteKontrakPdf($id, $type)
+    {
+        $kontrak = KontrakPelanggan::findOrFail($id);
+        if ($type === 'form' && $kontrak->form_pdf) {
+            Storage::disk('public')->delete($kontrak->form_pdf);
+            $kontrak->form_pdf = null;
+        }
+        if ($type === 'kontrak' && $kontrak->kontrak_pdf) {
+            Storage::disk('public')->delete($kontrak->kontrak_pdf);
+            $kontrak->kontrak_pdf = null;
+        }
+        $kontrak->save();
+        return back()->with('success', 'PDF berhasil dihapus!');
     }
 }

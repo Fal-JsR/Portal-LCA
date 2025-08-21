@@ -159,7 +159,7 @@
                         'Trafik Client' => route('admin.trafik-client'),
                         'Record Maintenance' => route('admin.record.index'),
                         'Kontak' => route('admin.kontak'),
-                        'Kontrak Pelanggan' => '#',
+                        'Kontrak Pelanggan' => route('admin.kontrak.index'),
                     ];
                 @endphp
 

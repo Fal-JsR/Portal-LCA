@@ -8,7 +8,7 @@ use App\Http\Controllers\GrafikTrafikController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware('auth')->group(function () {
@@ -61,6 +61,11 @@ Route::middleware(['auth', 'check.role:admin'])->prefix('admin')->group(function
     Route::get('/record/maintenance/{id}', [AdminDashboardController::class, 'recordMaintenance'])->name('admin.record.maintenance');
     Route::get('/record/export', [AdminDashboardController::class, 'exportRecordPage'])->name('admin.record.export.page');
     Route::get('/record/export/excel', [AdminDashboardController::class, 'exportRecordExcel'])->name('admin.record.export.excel');
+    Route::get('/kontrak', [AdminDashboardController::class, 'indexKontrak'])->name('admin.kontrak.index');
+    Route::get('/kontrak/{id}', [AdminDashboardController::class, 'showKontrak'])->name('admin.kontrak.show');
+    Route::post('/kontrak/{id}/upload/{type}', [AdminDashboardController::class, 'uploadKontrak'])->name('admin.kontrak.upload');
+    Route::put('/kontrak/{id}/edit/{type}', [AdminDashboardController::class, 'editKontrakPdf'])->name('admin.kontrak.edit');
+    Route::delete('/kontrak/{id}/delete/{type}', [AdminDashboardController::class, 'deleteKontrakPdf'])->name('admin.kontrak.delete');
 });
 
 Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(function () {
