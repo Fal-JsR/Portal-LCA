@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ $title ?? 'Client Dashboard' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -15,22 +16,44 @@
             </div>
 
             <nav class="flex-1 overflow-y-auto mt-4 space-y-1 px-4">
-                @php
-                    $menus = [
-                        'Home' => route('client.dashboard'),
-                        'Trafik Network' => '#',
-                        'FAQ' => route('faq.fiber'),
-                        'Kontak' => route('contact'),
-                        'Profil' => '#',
-                        'Invoice' => '#',
-                    ];
-                @endphp
+                <a href="{{ route('client.dashboard') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Home
+                </a>
+                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Trafik Network
+                </a>
+                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Record Maintenance 
+                </a>
+                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Profil
+                </a>
+                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Kontrak
+                </a>
 
-                @foreach ($menus as $label => $url)
-                    <a href="{{ $url }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
-                        {{ $label }}
-                    </a>
-                @endforeach
+                <!-- FAQ Dropdown Menu -->
+                <div class="relative">
+                    <button onclick="toggleSidebarDropdown('faqDropdownMenu', 'faqDropdownIcon')" 
+                            class="w-full flex items-center justify-between py-2 px-3 rounded hover:bg-gray-700 transition">
+                        <span>FAQ</span>
+                        <i id="faqDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="faqDropdownMenu" class="hidden mt-1 space-y-1 pl-4">
+                        <a href="{{ route('client.faq.fiber') }}" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
+                            <i class="fas fa-fiber-new text-green-400 mr-2"></i>
+                            <span>FAQ Fiber Optic</span>
+                        </a>
+                        <a href="{{ route('client.faq.wireless') }}" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
+                            <i class="fas fa-wifi text-orange-400 mr-2"></i>
+                            <span>FAQ Wireless</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{{ route('client.kontak') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Kontak
+                </a>
             </nav>
         </aside>
 
@@ -51,5 +74,21 @@
             </main>
         </div>
     </div>
+
+    <script>
+        function toggleSidebarDropdown(dropdownId, iconId) {
+            const dropdown = document.getElementById(dropdownId);
+            const icon = document.getElementById(iconId);
+
+            // Only one dropdown for client
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                dropdown.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
 </body>
 </html>
