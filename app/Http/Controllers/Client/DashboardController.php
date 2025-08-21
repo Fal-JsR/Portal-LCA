@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Instansi;
 use App\Models\GrafikTrafik;
 use App\Models\RecordMaintenance;
+use App\Models\KontrakPelanggan;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -35,5 +36,14 @@ class DashboardController extends Controller
         $records = RecordMaintenance::where('instansi_id', $user->instansi_id)->latest()->get();
 
         return view('client.record.record', compact('instansi', 'records'));
+    }
+
+    public function kontrakIndex()
+    {
+        $user = Auth::user();
+        $instansi = \App\Models\Instansi::find($user->instansi_id);
+        $kontrak = KontrakPelanggan::where('instansi_id', $user->instansi_id)->first();
+
+        return view('client.kontrak.kontrak', compact('instansi', 'kontrak'));
     }
 }

@@ -28,7 +28,7 @@
                 <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Profil
                 </a>
-                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                <a href="{{ route('client.kontrak.index') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Kontrak
                 </a>
 
