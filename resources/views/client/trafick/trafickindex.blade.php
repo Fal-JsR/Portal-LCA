@@ -23,49 +23,61 @@
                 class="font-semibold">{{ $instansi->nama_instansi }}</span></p>
 
         <div class="bg-white shadow-lg rounded-2xl p-6 mb-8">
-            @forelse($grafiks as $grafik)
-                <div class="mb-8">
-                    <div class="grid grid-cols-2 gap-6">
-                        @if($grafik->url_2jam)
-                            <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
-                                onclick="openPopup('{{ html_entity_decode($grafik->url_2jam) }}', 'Grafik 2 Jam')">
-                                <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 2 Jam</h3>
-                                <img src="{{ html_entity_decode($grafik->url_2jam) }}" alt="Grafik 2 Jam"
-                                    class="w-full h-auto rounded">
-                            </div>
-                        @endif
-                        @if($grafik->url_24jam)
-                            <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
-                                onclick="openPopup('{{ html_entity_decode($grafik->url_24jam) }}', 'Grafik 24 Jam')">
-                                <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 24 Jam</h3>
-                                <img src="{{ html_entity_decode($grafik->url_24jam) }}" alt="Grafik 24 Jam"
-                                    class="w-full h-auto rounded">
-                            </div>
-                        @endif
-                        @if($grafik->url_30hari)
-                            <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
-                                onclick="openPopup('{{ html_entity_decode($grafik->url_30hari) }}', 'Grafik 30 Hari')">
-                                <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 30 Hari</h3>
-                                <img src="{{ html_entity_decode($grafik->url_30hari) }}" alt="Grafik 30 Hari"
-                                    class="w-full h-auto rounded">
-                            </div>
-                        @endif
-                        @if($grafik->url_365hari)
-                            <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
-                                onclick="openPopup('{{ html_entity_decode($grafik->url_365hari) }}', 'Grafik 365 Hari')">
-                                <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 365 Hari</h3>
-                                <img src="{{ html_entity_decode($grafik->url_365hari) }}" alt="Grafik 365 Hari"
-                                    class="w-full h-auto rounded">
+            @if($grafiks->count() == 0)
+                <div class="text-center py-12">
+                    <i class="fas fa-chart-bar text-gray-400 text-6xl mb-4"></i>
+                    <p class="text-gray-500 text-lg">Belum ada grafik trafik yang ditambahkan oleh admin untuk instansi Anda.
+                    </p>
+                </div>
+            @else
+                @forelse($grafiks as $grafik)
+                    <div class="mb-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            @if($grafik->url_2jam)
+                                <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
+                                    onclick="openPopup('{{ html_entity_decode($grafik->url_2jam) }}', 'Grafik 2 Jam')">
+                                    <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 2 Jam</h3>
+                                    <img src="{{ html_entity_decode($grafik->url_2jam) }}" alt="Grafik 2 Jam"
+                                        class="w-full h-auto rounded">
+                                </div>
+                            @endif
+                            @if($grafik->url_24jam)
+                                <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
+                                    onclick="openPopup('{{ html_entity_decode($grafik->url_24jam) }}', 'Grafik 24 Jam')">
+                                    <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 24 Jam</h3>
+                                    <img src="{{ html_entity_decode($grafik->url_24jam) }}" alt="Grafik 24 Jam"
+                                        class="w-full h-auto rounded">
+                                </div>
+                            @endif
+                            @if($grafik->url_30hari)
+                                <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
+                                    onclick="openPopup('{{ html_entity_decode($grafik->url_30hari) }}', 'Grafik 30 Hari')">
+                                    <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 30 Hari</h3>
+                                    <img src="{{ html_entity_decode($grafik->url_30hari) }}" alt="Grafik 30 Hari"
+                                        class="w-full h-auto rounded">
+                                </div>
+                            @endif
+                            @if($grafik->url_365hari)
+                                <div class="bg-blue-50 rounded-lg shadow p-4 cursor-pointer"
+                                    onclick="openPopup('{{ html_entity_decode($grafik->url_365hari) }}', 'Grafik 365 Hari')">
+                                    <h3 class="text-sm font-medium text-blue-600 mb-2">Grafik 365 Hari</h3>
+                                    <img src="{{ html_entity_decode($grafik->url_365hari) }}" alt="Grafik 365 Hari"
+                                        class="w-full h-auto rounded">
+                                </div>
+                            @endif
+                        </div>
+                        {{-- Jika grafik ada tapi semua url kosong --}}
+                        @if(!$grafik->url_2jam && !$grafik->url_24jam && !$grafik->url_30hari && !$grafik->url_365hari)
+                            <div class="text-center py-8">
+                                <i class="fas fa-chart-bar text-gray-400 text-4xl mb-2"></i>
+                                <p class="text-gray-500">Belum ada URL grafik yang tersedia untuk {{ $grafik->nama }}</p>
                             </div>
                         @endif
                     </div>
-                </div>
-            @empty
-                <div class="text-center py-12">
-                    <i class="fas fa-chart-bar text-gray-400 text-6xl mb-4"></i>
-                    <p class="text-gray-500 text-lg">Belum ada grafik trafik untuk instansi Anda.</p>
-                </div>
-            @endforelse
+                @empty
+                    {{-- Sudah ditangani di atas --}}
+                @endforelse
+            @endif
         </div>
     </div>
 

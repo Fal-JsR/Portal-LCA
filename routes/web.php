@@ -78,6 +78,7 @@ Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(functi
     Route::get('/trafick', [ClientDashboardController::class, 'trafickIndex'])->name('client.trafick.index');
     Route::get('/record', [ClientDashboardController::class, 'recordIndex'])->name('client.record.index');
     Route::get('/kontrak', [ClientDashboardController::class, 'kontrakIndex'])->name('client.kontrak.index');
+    Route::get('/profile', fn() => view('client.profile.profileindex'))->name('client.profile.index');
 });
 
 Route::get('/contact', fn() => view('pages.contact'))->name('contact');

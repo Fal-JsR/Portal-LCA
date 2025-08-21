@@ -53,6 +53,6 @@ class User extends Authenticatable
      */
     public function instansi()
     {
-        return $this->belongsTo(Instansi::class);
+        return $this->belongsTo(\App\Models\Instansi::class);
     }
 }

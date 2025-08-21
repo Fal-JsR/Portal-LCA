@@ -32,7 +32,7 @@ class DashboardController extends Controller
     public function recordIndex()
     {
         $user = Auth::user();
-        $instansi = \App\Models\Instansi::find($user->instansi_id);
+        $instansi = Instansi::find($user->instansi_id);
         $records = RecordMaintenance::where('instansi_id', $user->instansi_id)->latest()->get();
 
         return view('client.record.record', compact('instansi', 'records'));
@@ -41,7 +41,7 @@ class DashboardController extends Controller
     public function kontrakIndex()
     {
         $user = Auth::user();
-        $instansi = \App\Models\Instansi::find($user->instansi_id);
+        $instansi = Instansi::find($user->instansi_id);
         $kontrak = KontrakPelanggan::where('instansi_id', $user->instansi_id)->first();
 
         return view('client.kontrak.kontrak', compact('instansi', 'kontrak'));

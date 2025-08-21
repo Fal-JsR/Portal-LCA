@@ -31,9 +31,9 @@
                     TRAFIK JARINGAN
                 </h3>
                 <p class="text-gray-600 text-sm mb-4">Monitoring jaringan anda</p>
-                <a href="#"
+                <a href="{{ route('client.trafick.index') }}"
                     class="inline-block px-4 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-chart-line mr-2"></i>Lihat Client
+                    <i class="fas fa-chart-line mr-2"></i>Lihat jaringan
                 </a>
             </div>
             <!-- Card FAQ -->
@@ -44,7 +44,7 @@
                     FAQ
                 </h3>
                 <p class="text-gray-600 text-sm mb-4">Panduan troubleshooting fiber optic</p>
-                <a href="#"
+                <a href="{{ route('client.faq.index') }}"
                     class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 hover:shadow-lg transition duration-300">
                     <i class="fas fa-book mr-2"></i>Lihat FAQ
                 </a>
@@ -57,7 +57,7 @@
                     KONTAK
                 </h3>
                 <p class="text-gray-600 text-sm mb-4">Informasi kontak dan lokasi</p>
-                <a href="#"
+                <a href="{{ route('client.kontak') }}"
                     class="inline-block px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 hover:shadow-lg transition duration-300">
                     <i class="fas fa-address-book mr-2"></i>Lihat Kontak
                 </a>
@@ -70,9 +70,22 @@
                     PROFIL
                 </h3>
                 <p class="text-gray-600 text-sm mb-4">Pengaturan akun</p>
-                <a href="#"
+                <a href="{{ route('client.profile.index') }}"
                     class="inline-block px-4 py-2 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 hover:shadow-lg transition duration-300">
                     <i class="fas fa-cog mr-2"></i>Kelola Profil
+                </a>
+            </div>
+            <!-- Card Kontrak -->
+            <div
+                class="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2 flex items-center">
+                    <i class="fas fa-file-contract mr-2 text-green-600"></i>
+                    KONTRAK
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">Lihat kontrak pelanggan Anda</p>
+                <a href="{{ route('client.kontrak.index') }}"
+                    class="inline-block px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 hover:shadow-lg transition duration-300">
+                    <i class="fas fa-file-pdf mr-2"></i>Lihat Kontrak
                 </a>
             </div>
         </div>
