@@ -2,6 +2,10 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Instansi;
+use App\Models\GrafikTrafik;
+use App\Models\RecordMaintenance;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -13,5 +17,23 @@ class DashboardController extends Controller
     public function link()
     {
         return view('client.link');
+    }
+
+    public function trafickIndex()
+    {
+        $user = Auth::user();
+        $instansi = Instansi::find($user->instansi_id);
+        $grafiks = GrafikTrafik::where('instansi_id', $user->instansi_id)->get();
+
+        return view('client.trafick.trafickindex', compact('instansi', 'grafiks'));
+    }
+
+    public function recordIndex()
+    {
+        $user = Auth::user();
+        $instansi = \App\Models\Instansi::find($user->instansi_id);
+        $records = RecordMaintenance::where('instansi_id', $user->instansi_id)->latest()->get();
+
+        return view('client.record.record', compact('instansi', 'records'));
     }
 }

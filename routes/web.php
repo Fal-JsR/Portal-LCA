@@ -75,6 +75,8 @@ Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(functi
     Route::get('/faq', fn() => view('client.faq.faqindex'))->name('client.faq.index');
     Route::get('/faq/fiber', fn() => view('client.faq.faqfiber'))->name('client.faq.fiber');
     Route::get('/faq/wireless', fn() => view('client.faq.faqwireless'))->name('client.faq.wireless');
+    Route::get('/trafick', [ClientDashboardController::class, 'trafickIndex'])->name('client.trafick.index');
+    Route::get('/record', [ClientDashboardController::class, 'recordIndex'])->name('client.record.index');
 });
 
 Route::get('/contact', fn() => view('pages.contact'))->name('contact');

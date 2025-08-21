@@ -19,10 +19,10 @@
                 <a href="{{ route('client.dashboard') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Home
                 </a>
-                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                <a href="{{ route('client.trafick.index') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Trafik Network
                 </a>
-                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                <a href="{{ route('client.record.index') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Record Maintenance 
                 </a>
                 <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
