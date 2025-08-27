@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>{{ $title ?? 'Client Dashboard' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-100 font-sans">
 
     <div class="flex h-screen">
@@ -19,31 +21,37 @@
                 <a href="{{ route('client.dashboard') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Home
                 </a>
-                <a href="{{ route('client.trafick.index') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                <a href="{{ route('client.trafick.index') }}"
+                    class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Trafik Network
                 </a>
-                <a href="{{ route('client.record.index') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
-                    Record Maintenance 
+                <a href="{{ route('client.record.index') }}"
+                    class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                    Record Maintenance
                 </a>
-                <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                <a href="{{ route('client.profile.index') }}"
+                    class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Profil
                 </a>
-                <a href="{{ route('client.kontrak.index') }}" class="block py-2 px-3 rounded hover:bg-gray-700 transition">
+                <a href="{{ route('client.kontrak.index') }}"
+                    class="block py-2 px-3 rounded hover:bg-gray-700 transition">
                     Kontrak
                 </a>
 
                 <!-- FAQ Dropdown Menu -->
                 <div class="relative">
-                    <button onclick="toggleSidebarDropdown('faqDropdownMenu', 'faqDropdownIcon')" 
-                            class="w-full flex items-center justify-between py-2 px-3 rounded hover:bg-gray-700 transition">
+                    <button onclick="toggleSidebarDropdown('faqDropdownMenu', 'faqDropdownIcon')"
+                        class="w-full flex items-center justify-between py-2 px-3 rounded hover:bg-gray-700 transition">
                         <span>FAQ</span>
                         <i id="faqDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
                     <div id="faqDropdownMenu" class="hidden mt-1 space-y-1 pl-4">
-                        <a href="{{ route('client.faq.fiber') }}" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
+                        <a href="{{ route('client.faq.fiber') }}"
+                            class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
                             <span>FAQ Fiber Optic</span>
                         </a>
-                        <a href="{{ route('client.faq.wireless') }}" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
+                        <a href="{{ route('client.faq.wireless') }}"
+                            class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition">
                             <span>FAQ Wireless</span>
                         </a>
                     </div>
@@ -89,4 +97,5 @@
         }
     </script>
 </body>
+
 </html>

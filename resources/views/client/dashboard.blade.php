@@ -20,7 +20,7 @@
     </style>
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Dashboard</h1>
-        <p class="text-center text-gray-600 mb-8">Halo, {{ Auth::user()->name }}. Ada yang bisa kami bantu?</p>
+        <p class="text-center text-gray-600 mb-8">Halo, {{ Auth::user()->name }} Ada yang bisa kami bantu?</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 fade-up">
             <!-- Card Trafik Client -->

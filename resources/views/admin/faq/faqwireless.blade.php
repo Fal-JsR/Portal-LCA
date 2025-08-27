@@ -67,8 +67,10 @@
                 </div>
                 <div class="faq-answer px-8 pb-6 pt-2 hidden">
                     <ul class="list-disc list-inside space-y-2 text-blue-700">
-                        <li>Hubungi CS atau COC untuk cek limit di queue apakah tersiolir 1k atau tidak? Dan apakah limitnya full merah atau tidak?</li>
-                        <li>Jika trafik full, diinfokan ke client: “Saat ini trafik bapak/ibu sedang full sesuai pembelian, kami sarankan untuk naik bandwidth”</li>
+                        <li>Hubungi CS atau COC untuk cek limit di queue apakah tersiolir 1k atau tidak? Dan apakah limitnya
+                            full merah atau tidak?</li>
+                        <li>Jika trafik full, diinfokan ke client: “Saat ini trafik bapak/ibu sedang full sesuai pembelian,
+                            kami sarankan untuk naik bandwidth”</li>
                     </ul>
                 </div>
             </div>

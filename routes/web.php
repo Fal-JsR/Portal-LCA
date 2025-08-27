@@ -83,7 +83,5 @@ Route::middleware(['auth', 'check.role:client'])->prefix('client')->group(functi
 
 Route::get('/contact', fn() => view('pages.contact'))->name('contact');
 Route::get('/profile', fn() => view('pages.profile'))->name('profile');
-Route::get('/faq/fiber', fn() => view('pages.faq_fiber'))->name('faq.fiber');
-Route::get('/faq/wireless', fn() => view('pages.faq_wireless'))->name('faq.wireless');
 Route::get('/network-ai', fn() => view('pages.network_ai'))->name('network.ai');
 require __DIR__.'/auth.php';

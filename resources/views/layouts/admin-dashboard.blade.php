@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>{{ $title ?? 'Admin Dashboard' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-100 font-sans">
 
     <div class="flex h-screen">
@@ -13,7 +15,8 @@
         <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
 
         <!-- Sidebar -->
-        <aside id="sidebar" class="fixed lg:static w-96 lg:w-64 bg-gray-900 text-white flex flex-col h-full z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <aside id="sidebar"
+            class="fixed lg:static w-96 lg:w-64 bg-gray-900 text-white flex flex-col h-full z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
             <div class="flex items-center justify-center h-24 lg:h-20 border-b border-gray-800 px-6 lg:px-4">
                 <img src="{{ asset('assets/icon.png') }}" alt="LCA Logo" class="h-14 lg:h-12">
                 <button id="close-sidebar" class="lg:hidden text-white hover:text-gray-300 p-3 absolute right-4">
@@ -23,47 +26,45 @@
 
             <nav class="flex-1 overflow-y-auto mt-6 lg:mt-4 space-y-3 lg:space-y-2 px-6 lg:px-4">
                 <!-- Home Menu -->
-                <a href="{{ route('admin.dashboard') }}" class="block py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                <a href="{{ route('admin.dashboard') }}"
+                    class="block py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
                     Home
                 </a>
 
                 <!-- Link Dropdown Menu -->
                 <div class="relative">
-                    <button onclick="toggleSidebarDropdown('linkDropdownMenu', 'linkDropdownIcon')" 
-                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                    <button onclick="toggleSidebarDropdown('linkDropdownMenu', 'linkDropdownIcon')"
+                        class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
                         <span>Link</span>
                         <i id="linkDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
-                    
+
                     <!-- Dropdown Content -->
                     <div id="linkDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
-                        <a href="https://drive.google.com/file/d/1Hvq9u-7RM_FdiBbxEbfQWO7yAwTp5aqT/view?pli=1" 
-                           target="_blank"
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="https://drive.google.com/file/d/1Hvq9u-7RM_FdiBbxEbfQWO7yAwTp5aqT/view?pli=1"
+                            target="_blank"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-project-diagram text-green-400 mr-3 text-base lg:text-sm"></i>
                             <span>Topologi LCA</span>
                             <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
                         </a>
 
-                        <a href="http://103.156.225.17/cacti/" 
-                           target="_blank"
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="http://103.156.225.17/cacti/" target="_blank"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-chart-line text-blue-400 mr-3 text-base lg:text-sm"></i>
                             <span>MRTG</span>
                             <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
                         </a>
 
-                        <a href="https://nms-lca.mendek.in/index.htm" 
-                           target="_blank"
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="https://nms-lca.mendek.in/index.htm" target="_blank"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-network-wired text-purple-400 mr-3 text-base lg:text-sm"></i>
                             <span>PRTG</span>
                             <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
                         </a>
 
-                        <a href="https://www.jotform.com/app/242970110347451" 
-                           target="_blank"
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="https://www.jotform.com/app/242970110347451" target="_blank"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-users text-orange-400 mr-3 text-base lg:text-sm"></i>
                             <span>Portal HRD</span>
                             <i class="fas fa-external-link-alt text-gray-400 ml-auto text-xs"></i>
@@ -73,34 +74,34 @@
 
                 <!-- Trafik LCA Dropdown Menu -->
                 <div class="relative">
-                    <button onclick="toggleSidebarDropdown('trafikLcaDropdownMenu', 'trafikLcaDropdownIcon')" 
-                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                    <button onclick="toggleSidebarDropdown('trafikLcaDropdownMenu', 'trafikLcaDropdownIcon')"
+                        class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
                         <span>Trafik LCA</span>
                         <i id="trafikLcaDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
-                    
+
                     <!-- Dropdown Content -->
                     <div id="trafikLcaDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
-                        <a href="{{ route('admin.live-monitoring') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="{{ route('admin.live-monitoring') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-broadcast-tower text-green-400 mr-3 text-base lg:text-sm"></i>
                             <span>Live Monitoring</span>
                         </a>
 
-                        <a href="{{ route('admin.upstream') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="{{ route('admin.upstream') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-arrow-up text-blue-400 mr-3 text-base lg:text-sm"></i>
                             <span>Upstream</span>
                         </a>
 
-                        <a href="{{ route('admin.downstream') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="{{ route('admin.downstream') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-arrow-down text-purple-400 mr-3 text-base lg:text-sm"></i>
                             <span>Downstream</span>
                         </a>
 
-                        <a href="{{ route('admin.ping') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="{{ route('admin.ping') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-signal text-orange-400 mr-3 text-base lg:text-sm"></i>
                             <span>Ping</span>
                         </a>
@@ -109,22 +110,22 @@
 
                 <!-- Profil Dropdown Menu -->
                 <div class="relative">
-                    <button onclick="toggleSidebarDropdown('profilDropdownMenu', 'profilDropdownIcon')" 
-                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                    <button onclick="toggleSidebarDropdown('profilDropdownMenu', 'profilDropdownIcon')"
+                        class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
                         <span>Profil</span>
                         <i id="profilDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
-                    
+
                     <!-- Dropdown Content -->
                     <div id="profilDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
-                        <a href="{{ route('admin.register') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="{{ route('admin.register') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-user-plus text-green-400 mr-3 text-base lg:text-sm"></i>
                             <span>Registrasi</span>
                         </a>
 
-                        <a href="{{ route('admin.edit') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
+                        <a href="{{ route('admin.edit') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <i class="fas fa-edit text-blue-400 mr-3 text-base lg:text-sm"></i>
                             <span>Edit Data</span>
                         </a>
@@ -133,22 +134,20 @@
 
                 <!-- FAQ Dropdown Menu -->
                 <div class="relative">
-                    <button onclick="toggleSidebarDropdown('faqDropdownMenu', 'faqDropdownIcon')" 
-                            class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                    <button onclick="toggleSidebarDropdown('faqDropdownMenu', 'faqDropdownIcon')"
+                        class="w-full flex items-center justify-between py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
                         <span>FAQ</span>
                         <i id="faqDropdownIcon" class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
-                    
+
                     <!-- Dropdown Content -->
                     <div id="faqDropdownMenu" class="hidden mt-2 space-y-1 pl-6 lg:pl-4">
-                        <a href="{{ route('admin.faq.fiber') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
-                            <i class="fas fa-fiber-new text-green-400 mr-3 text-base lg:text-sm"></i>
+                        <a href="{{ route('admin.faq.fiber') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <span>FAQ Fiber Optic</span>
                         </a>
-                        <a href="{{ route('admin.faq.wireless') }}" 
-                           class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
-                            <i class="fas fa-wifi text-orange-400 mr-3 text-base lg:text-sm"></i>
+                        <a href="{{ route('admin.faq.wireless') }}"
+                            class="flex items-center py-3 lg:py-2 px-4 lg:px-3 text-lg lg:text-sm rounded-lg hover:bg-gray-700 transition-colors group">
                             <span>FAQ Wireless</span>
                         </a>
                     </div>
@@ -164,7 +163,8 @@
                 @endphp
 
                 @foreach ($menus as $label => $url)
-                    <a href="{{ $url }}" class="block py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
+                    <a href="{{ $url }}"
+                        class="block py-5 lg:py-2 px-5 lg:px-3 text-xl lg:text-base rounded-lg hover:bg-gray-700 transition">
                         {{ $label }}
                     </a>
                 @endforeach
@@ -185,7 +185,8 @@
                     <span class="text-gray-600 mr-4 text-base lg:text-base">👋 {{ Auth::user()->name }}</span>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button class="px-4 py-3 lg:px-4 lg:py-2 text-base lg:text-base bg-red-600 text-white rounded hover:bg-red-700">
+                        <button
+                            class="px-4 py-3 lg:px-4 lg:py-2 text-base lg:text-base bg-red-600 text-white rounded hover:bg-red-700">
                             Logout
                         </button>
                     </form>
@@ -244,11 +245,11 @@
         function toggleSidebarDropdown(dropdownId, iconId) {
             const dropdown = document.getElementById(dropdownId);
             const icon = document.getElementById(iconId);
-            
+
             // Close all other dropdowns first
             const allDropdowns = ['linkDropdownMenu', 'trafikLcaDropdownMenu', 'profilDropdownMenu', 'faqDropdownMenu'];
             const allIcons = ['linkDropdownIcon', 'trafikLcaDropdownIcon', 'profilDropdownIcon', 'faqDropdownIcon'];
-            
+
             allDropdowns.forEach((id, index) => {
                 if (id !== dropdownId) {
                     const otherDropdown = document.getElementById(id);
@@ -262,7 +263,7 @@
                     }
                 }
             });
-            
+
             if (dropdown.classList.contains('hidden')) {
                 // Show dropdown
                 dropdown.classList.remove('hidden');
@@ -272,7 +273,7 @@
                 // Hide dropdown
                 dropdown.style.animation = 'slideUp 0.3s ease-out';
                 icon.style.transform = 'rotate(0deg)';
-                
+
                 setTimeout(() => {
                     dropdown.classList.add('hidden');
                 }, 300);
@@ -311,4 +312,5 @@
         document.head.appendChild(style);
     </script>
 </body>
+
 </html>

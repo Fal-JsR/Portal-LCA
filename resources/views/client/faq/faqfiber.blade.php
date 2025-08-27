@@ -116,13 +116,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Back Button -->
-    <div class="text-center mt-8 fade-up">
-        <a href="{{ route('admin.dashboard') }}" class="px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors">
-            <i class="fas fa-arrow-left mr-2"></i>Kembali ke Dashboard
-        </a>
-    </div>
 </div>
 
 <script>

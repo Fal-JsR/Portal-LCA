@@ -1,12 +1,29 @@
 @extends('layouts.admin-dashboard')
 
 @section('content')
+<style>
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(20px);}
+        100% { opacity: 1; transform: translateY(0);}
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .card-enhanced {
+        border-left: 6px solid #3b82f6;
+        transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .card-enhanced:hover {
+        box-shadow: 0 10px 32px 0 rgba(59,130,246,0.15), 0 2px 4px 0 rgba(0,0,0,0.08);
+        transform: scale(1.035);
+        border-left-color: #22c55e;
+        background: linear-gradient(90deg, #f0f9ff 0%, #e0f7fa 100%);
+    }
+</style>
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">TRAFIK DOWNSTREAM LIVE</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800 fade-up">TRAFIK DOWNSTREAM LIVE</h1>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 fade-up">
         <!-- VLAN-500-BMD-ASNET -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-enhanced">
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">VLAN-500-BMD-ASNET</h3>
             </div>
@@ -16,7 +33,7 @@
         </div>
 
         <!-- LOKALOP POP BOJONG KONENG -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-enhanced">
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP POP BOJONG KONENG</h3>
             </div>
@@ -26,7 +43,7 @@
         </div>
 
         <!-- LOKALOP POP PINEFOREST -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-enhanced">
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP POP PINEFOREST</h3>
             </div>
@@ -36,7 +53,7 @@
         </div>
 
         <!-- LOKALOP POP KWIK -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden card-enhanced">
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP POP KWIK</h3>
             </div>

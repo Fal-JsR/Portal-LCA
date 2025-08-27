@@ -18,6 +18,25 @@
         .fade-up {
             animation: fadeUp 0.6s ease forwards;
         }
+
+        /* Card Enhancement */
+        .card-enhanced {
+            border-left: 6px solid #3b82f6;
+            transition:
+                box-shadow 0.3s,
+                transform 0.3s,
+                border-color 0.3s,
+                background 0.3s;
+        }
+
+        .card-enhanced:hover {
+            box-shadow:
+                0 10px 32px 0 rgba(59, 130, 246, 0.15),
+                0 2px 4px 0 rgba(0, 0, 0, 0.08);
+            transform: scale(1.035);
+            border-left-color: #22c55e;
+            background: linear-gradient(90deg, #f0f9ff 0%, #e0f7fa 100%);
+        }
     </style>
 
     <div class="container mx-auto px-4 py-10">
@@ -36,7 +55,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($instansis as $instansi)
                         <div
-                            class="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out">
+                            class="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 card-enhanced">
                             <div class="flex items-center mb-4">
                                 <div class="p-3 bg-blue-100 rounded-xl flex justify-center items-center shadow-md">
                                     <i class="fas fa-building text-blue-600 text-2xl"></i>

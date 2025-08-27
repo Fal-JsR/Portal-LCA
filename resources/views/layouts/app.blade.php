@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - {{ Auth::user()->name }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>/
+
 <body class="bg-gray-50 font-sans">
     <nav class="bg-white shadow p-4 flex justify-between items-center">
         <h1 class="text-xl font-bold text-blue-700">Portal Perusahaan</h1>
@@ -21,4 +23,5 @@
         @yield('content')
     </main>
 </body>
+
 </html>
