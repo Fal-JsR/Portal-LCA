@@ -10,8 +10,8 @@
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">VLAN-500-BMD-ASNET</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'VLAN-500-BMD-ASNET')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="VLAN-500-BMD-ASNET" class="w-full h-auto transition-transform hover:scale-105">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'VLAN-500-BMD-ASNET')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="VLAN-500-BMD-ASNET" class="w-full h-auto transition-transform hover:scale-105">
             </div>
         </div>
 
@@ -20,8 +20,8 @@
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP POP KWIK</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP POP KWIK')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP POP KWIK" class="w-full h-auto transition-transform hover:scale-105">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP POP KWIK')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP POP KWIK" class="w-full h-auto transition-transform hover:scale-105">
             </div>
         </div>
 
@@ -30,8 +30,8 @@
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP POP BOJONG KONENG</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP POP BOJONG KONENG')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP POP BOJONG KONENG" class="w-full h-auto transition-transform hover:scale-105">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP POP BOJONG KONENG')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP POP BOJONG KONENG" class="w-full h-auto transition-transform hover:scale-105">
             </div>
         </div>
 
@@ -40,8 +40,8 @@
             <div class="bg-blue-600 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP POP PINEFOREST</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP POP PINEFOREST')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP POP PINEFOREST" class="w-full h-auto transition-transform hover:scale-105">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP POP PINEFOREST')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=1&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP POP PINEFOREST" class="w-full h-auto transition-transform hover:scale-105">
             </div>
         </div>
     </div>

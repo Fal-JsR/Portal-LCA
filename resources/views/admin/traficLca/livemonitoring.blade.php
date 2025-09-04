@@ -10,8 +10,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">IPT RBN</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4893&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'IPT RBN')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4893&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="IPT RBN" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4893&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'IPT RBN')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4893&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="IPT RBN" class="w-full h-auto">
             </div>
         </div>
 
@@ -20,8 +20,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">KONTEN CBN</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4897&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'KONTEN CBN')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4897&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="KONTEN CBN" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4897&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'KONTEN CBN')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4897&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="KONTEN CBN" class="w-full h-auto">
             </div>
         </div>
 
@@ -30,8 +30,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">JKTIX</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4892&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'JKTIX')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4892&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="JKTIX" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4892&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'JKTIX')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4892&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="JKTIX" class="w-full h-auto">
             </div>
         </div>
 
@@ -40,8 +40,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">IIX APJII</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4890&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'IIX APJII')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4890&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="IIX APJII" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4890&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'IIX APJII')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4890&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="IIX APJII" class="w-full h-auto">
             </div>
         </div>
 
@@ -50,8 +50,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">LOKALOP ASNET</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP ASNET')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP ASNET" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'LOKALOP ASNET')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=4630&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="LOKALOP ASNET" class="w-full h-auto">
             </div>
         </div>
 
@@ -60,8 +60,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">POP PINEFOREST</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP PINEFOREST')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP PINEFOREST" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP PINEFOREST')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7558&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP PINEFOREST" class="w-full h-auto">
             </div>
         </div>
 
@@ -70,8 +70,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">POP KWIK</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP KWIK')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP KWIK" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP KWIK')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7482&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP KWIK" class="w-full h-auto">
             </div>
         </div>
 
@@ -80,8 +80,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">POP DAFA</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7498&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP DAFA')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7498&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP DAFA" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7498&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP DAFA')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7498&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP DAFA" class="w-full h-auto">
             </div>
         </div>
 
@@ -90,8 +90,8 @@
             <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white p-3 text-center">
                 <h3 class="text-sm font-medium">POP BOJONG KONENG</h3>
             </div>
-            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP BOJONG KONENG')">
-                <img src="https://nms-1.lca.mendek.in/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP BOJONG KONENG" class="w-full h-auto">
+            <div class="p-3 cursor-pointer" onclick="openPopup('https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27', 'POP BOJONG KONENG')">
+                <img src="https://nms.lca.tol.lol/chart.png?type=graph&width=1000&height=400&username=admin&password=Lca@2020!&graphid=0&id=7506&graphstyling=showLegend%3D%271%27+baseFontSize%3D%2717%27" alt="POP BOJONG KONENG" class="w-full h-auto">
             </div>
         </div>
     </div>

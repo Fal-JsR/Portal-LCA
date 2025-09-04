@@ -103,7 +103,7 @@ class DashboardController extends Controller
     public function trafikClient()
     {
         $instansis = Instansi::all();
-        return view('admin.traficclient.traficclient', compact('instansis'));
+        return view('admin.traficclient.trraficclient', compact('instansis'));
     }
 
     public function showInstansiMonitoring($id)

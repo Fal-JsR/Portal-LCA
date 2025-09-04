@@ -16,17 +16,17 @@
                 </div>
                 <div id="bulan-group" class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Bulan</label>
-                    <input type="month" name="bulan" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <input type="month" name="bulan" id="bulan-input" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                 </div>
                 <div id="minggu-group" class="mb-4 hidden">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Minggu</label>
-                    <input type="week" name="minggu" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <input type="week" name="minggu" id="minggu-input" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                 </div>
                 <div id="custom-group" class="mb-4 hidden">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Awal</label>
-                    <input type="date" name="start" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <input type="date" name="start" id="start-input" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                     <label class="block text-sm font-medium text-gray-700 mb-2 mt-2">Tanggal Akhir</label>
-                    <input type="date" name="end" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <input type="date" name="end" id="end-input" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                 </div>
                 <div class="flex justify-end">
                     <button type="submit"
@@ -40,9 +40,18 @@
     <script>
         function toggleCustomDate() {
             var range = document.getElementById('range').value;
+            // Bulan
             document.getElementById('bulan-group').classList.toggle('hidden', range !== 'bulan');
+            document.getElementById('bulan-input').disabled = (range !== 'bulan');
+            // Minggu
             document.getElementById('minggu-group').classList.toggle('hidden', range !== 'minggu');
+            document.getElementById('minggu-input').disabled = (range !== 'minggu');
+            // Custom
             document.getElementById('custom-group').classList.toggle('hidden', range !== 'custom');
+            document.getElementById('start-input').disabled = (range !== 'custom');
+            document.getElementById('end-input').disabled = (range !== 'custom');
+            document.getElementById('start-input').required = (range === 'custom');
+            document.getElementById('end-input').required = (range === 'custom');
         }
         document.addEventListener('DOMContentLoaded', toggleCustomDate);
     </script>
